@@ -25,7 +25,7 @@ app.use("/games", express.static(path.join(__dirname, "games")));
 // ------------------------------------------
 // MONGO DB
 // ------------------------------------------
-const uri = "mongostring";
+const uri = "mongodb+srv://gyanesh:gyanesh0987654321@gamestore.ltsolaw.mongodb.net/?appName=gamestore";
 const client = new MongoClient(uri);
 
 let usersCollection;
@@ -76,7 +76,7 @@ function getCurrentUser() {
 // GET ROUTES
 // ------------------------------------------
 
-app.get("/", async (req, res) => {
+app.get("/index", async (req, res) => {
     const username = getCurrentUser();
     const user = await usersCollection.findOne({ username }) || {
         cart: [], library: [], coupon: "", price: 0
@@ -240,4 +240,3 @@ app.use((req, res) => res.status(404).send("404 Not Found"));
 app.listen(PORT, () =>
     console.log(`Server running on http://localhost:${PORT}`)
 );
-
