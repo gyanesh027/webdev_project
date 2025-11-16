@@ -23,7 +23,7 @@ app.use("/games", express.static(path.join(__dirname, "games")));
 // ------------------------------------------
 // MONGO DB
 // ------------------------------------------
-const uri = "mongodb+srv://gyanesh:gyanesh0987654321@gamestore.ltsolaw.mongodb.net/?appName=gamestore";
+const uri = "mongodbstring";
 const client = new MongoClient(uri);
 
 let usersCollection;
@@ -235,4 +235,5 @@ app.use((req, res) => res.status(404).send("404 Not Found"));
 app.listen(PORT, () =>
     console.log(`Server running on http://localhost:${PORT}`)
 );
+
 
