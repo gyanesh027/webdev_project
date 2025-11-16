@@ -1,0 +1,49 @@
+{
+ 
+  "games": [
+    {
+      "id": "gowr",
+      "title": "God of War Ragnarök",
+      "shortDescription": "Kratos and Atreus must journey to each of the nine realms in search of answers as the prophecy of Ragnarök looms.",
+      "price": 69.99,
+      "currency": "USD",
+      "poster": "https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-ybxhs.jpg?resize=1&w=480&h=270&quality=medium",
+      "images": [
+        "https://gamingbolt.com/wp-content/uploads/2022/10/god-of-war-ragnarok-image.jpg",
+        "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/24169477/god_of_war_ragnarok_svartalfheim_mine_res_mode_hfr_on_3840.jpg?q=50&fit=crop&w=825&dpr=1.5",
+        "https://s.yimg.com/ny/api/res/1.2/RFIWFRgbSAhQmph1uaXGOg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTk-/https://s.yimg.com/os/creatr-uploaded-images/2022-11/1c13ec70-5f7a-11ed-a3b7-973ebad8ec74",
+        "https://www.xfire.com/wp-content/uploads/2024/09/slow-god-of-war-ragnarok-pc-launch-proves-sony-was-right-all-along-1-scaled.jpeg"
+      ],
+      "tags": ["Action", "Adventure", "RPG", "Singleplayer", "Fantasy"],
+      "media": {
+        "trailer": "https://youtu.be/hfJ4Km46A-0"
+      },
+      "stock": 250,
+      "rating": 4.9,
+      "ratingCount": 150000
+    }
+  ],
+  "relatedGames": [
+    {
+      "id": "gowr_image1",
+      "image": "https://gamingbolt.com/wp-content/uploads/2022/10/god-of-war-ragnarok-image.jpg",
+      "alt": "God of War Ragnarok Screenshot 1"
+    },
+    {
+      "id": "gowr_image2",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/24169477/god_of_war_ragnarok_svartalfheim_mine_res_mode_hfr_on_3840.jpg?q=50&fit=crop&w=825&dpr=1.5",
+      "alt": "God of War Ragnarok Screenshot 2"
+    },
+    {
+      "id": "gowr_image3",
+      "image": "https://s.yimg.com/ny/api/res/1.2/RFIWFRgbSAhQmph1uaXGOg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTk-/https://s.yimg.com/os/creatr-uploaded-images/2022-11/1c13ec70-5f7a-11ed-a3b7-973ebad8ec74",
+      "alt": "God of War Ragnarok Screenshot 3"
+    },
+    {
+      "id": "gowr_image4",
+      "image": "https://www.xfire.com/wp-content/uploads/2024/09/slow-god-of-war-ragnarok-pc-launch-proves-sony-was-right-all-along-1-scaled.jpeg",
+      "alt": "God of War Ragnarok Screenshot 4"
+    }
+  ]
+
+}

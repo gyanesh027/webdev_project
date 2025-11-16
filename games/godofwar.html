@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Store - Your Gaming Paradise</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@600&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #0a0a0a;
+        --accent: #ff0000;
+        --accent-hover: #cc0000;
+        --muted: #ffffff;
+        --dark-grey: #1a1a1a;
+        --medium-grey: #2a2a2a;
+        --light-grey: #3a3a3a;
+        --text-grey: #999999;
+        --transition-fast: 0.3s;
+        --transition-slow: 0.6s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0000 100%);
+        font-family: "Poppins", "Segoe UI", sans-serif;
+        color: var(--muted);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR STYLES */
+      .header {
+        background: linear-gradient(
+          180deg,
+          var(--dark-grey) 0%,
+          rgba(26, 26, 26, 0.95) 100%
+        );
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--accent);
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+        animation: slideDown 1s ease;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--accent), #ff6600);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: transform var(--transition-fast);
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 35px;
+      }
+
+      .nav-menu a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        transition: color var(--transition-fast);
+      }
+
+      .nav-menu a:hover {
+        color: var(--accent);
+      }
+
+      .nav-menu a::after {
+        content: "";
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff6600);
+        width: 0;
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%);
+        transition: width var(--transition-fast) ease-in-out;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+        left: 0;
+        transform: translateX(0);
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .cart-btn,
+      .profile-btn {
+        background: linear-gradient(135deg, var(--accent), #ff3366);
+        color: #fff;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        transition: all var(--transition-fast);
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      }
+
+      .cart-btn:hover,
+      .profile-btn:hover {
+        background: linear-gradient(135deg, var(--accent-hover), #cc2855);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+      }
+
+      /* MAIN WRAPPER */
+      .main-wrapper {
+        display: flex;
+        min-height: calc(100vh - 90px);
+        animation: fadeIn var(--transition-slow) ease-in;
+      }
+
+      /* SIDEBAR STYLES */
+      .sidebar {
+        width: 280px;
+        background: linear-gradient(180deg, var(--dark-grey) 0%, #0f0f0f 100%);
+        padding: 30px 20px;
+        border-right: 2px solid var(--medium-grey);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .sidebar h3 {
+        background: linear-gradient(45deg, var(--accent), #ff6600);
+        background-clip: text;
+        margin-bottom: 25px;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .gift-cards {
+        background: linear-gradient(
+          135deg,
+          var(--medium-grey),
+          var(--light-grey)
+        );
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 35px;
+        text-align: center;
+        transition: all 0.4s;
+        border: 2px solid transparent;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .gift-cards:hover {
+        transform: translateY(-5px) scale(1.02);
+        border-color: var(--accent);
+        box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+      }
+
+      .gift-cards img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .gift-cards p {
+        color: var(--text-grey);
+        margin: 15px 0;
+        font-size: 14px;
+      }
+
+      .gift-cards button {
+        background: linear-gradient(135deg, var(--accent), #ff3366);
+        color: #ffffff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all var(--transition-fast);
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      }
+
+      .gift-cards button:hover {
+        background: linear-gradient(135deg, var(--accent-hover), #cc2855);
+        transform: scale(1.05);
+      }
+
+      .category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list li {
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden; /* keeps hover highlight clean around edges */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.category-list a {
+  display: block;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--medium-grey), rgba(42, 42, 42, 0.7));
+  color: var(--text); /* use your main text color variable */
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  font-size: 15px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.category-list a:hover {
+  background: linear-gradient(135deg, var(--light-grey), rgba(58, 58, 58, 0.8));
+  border-left-color: var(--accent);
+  transform: translateX(8px);
+  box-shadow: 0 3px 10px rgba(255, 0, 0, 0.2);
+  color: var(--accent-text, #fff); /* optional highlight text */
+}
+
+      /* MAIN CONTENT */
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(26, 0, 0, 0.3) 100%
+        );
+      }
+
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #1a0000 0%, var(--bg-dark) 100%);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200")
+          center/cover;
+        opacity: 0.15;
+        z-index: 0;
+      }
+
+      .title {
+        position: relative;
+        text-align: center;
+        z-index: 1;
+        animation: fadeInTitle 1.5s ease;
+      }
+
+      .title .game {
+        font-family: "Anton", sans-serif;
+        font-size: 180px;
+        font-weight: 900;
+        background: linear-gradient(45deg, #8b0000, var(--accent), #ff6600);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 12px;
+        line-height: 1;
+        text-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+      }
+
+      .title .store {
+        font-family: "Dancing Script", cursive;
+        font-size: 90px;
+        font-weight: 600;
+        color: #ffcc00;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) ;
+        text-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+      }
+
+      /* SEARCH SECTION */
+      .search-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/986a88d1b0e1420b00183def2a7034508353afa3/header.jpg?t=1758555255")
+            center/cover;
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+      }
+
+      .search-bar {
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 50px;
+        overflow: hidden;
+        border: 2px solid var(--accent);
+        box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+        animation: pulse 2s infinite alternate;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 18px 30px;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 17px;
+        outline: none;
+      }
+
+      .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .search-btn {
+        background: linear-gradient(135deg, var(--accent), #ff3366);
+        color: #ffffff;
+        padding: 18px 40px;
+        border: none;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: 600;
+        transition: all var(--transition-fast);
+      }
+
+      .search-btn:hover {
+        background: linear-gradient(135deg, var(--accent-hover), #cc2855);
+      }
+
+      /* CONTENT CONTAINER */
+      .content-container {
+        background: linear-gradient(
+          180deg,
+          var(--medium-grey) 0%,
+          var(--dark-grey) 100%
+        );
+        padding: 40px 20px;
+        margin-top: 0px;
+      }
+
+      /* GAME DETAILS */
+      .game-details-section {
+        padding: 40px;
+        background: var(--dark-bg);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        margin-top: 30px;
+      }
+
+      .game-details-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .game-details-main img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        border: 3px solid var(--accent);
+      }
+
+      .game-info {
+        flex: 1;
+        min-width: 350px;
+      }
+
+      .game-info h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color:  #ff3700df;
+        background: transparent;
+        
+      }
+
+      .game-info p {
+        margin-bottom: 20px;
+        line-height: 1.7;
+        color: var(--text-grey);
+      }
+
+      .game-info .price {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 30px;
+      }
+
+      .buy-btn {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, var(--accent), #ff3366);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .buy-btn:hover {
+        transform: scale(1.05);
+      }
+
+      .related-games-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .game-card {
+        background: none; 
+        border-radius: 15px;
+        height: 200px; 
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .game-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+      }
+
+      .game-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /*  removes extra box */
+        display: block;
+        border-radius: 15px;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: linear-gradient(180deg, var(--dark-grey) 0%, #000000 100%);
+        padding: 60px 40px 30px;
+        margin-top: 0;
+        border-top: 3px solid var(--accent);
+        text-align: center;
+        box-shadow: 0 -10px 40px rgba(255, 0, 0, 0.2);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-links a {
+        color: var(--text-grey);
+        text-decoration: none;
+        font-size: 16px;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .footer-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: translateX(-50%);
+        transition: width 0.3s;
+      }
+
+      .footer-links a:hover::after {
+        width: 100%;
+      }
+
+      .social-media {
+        margin: 30px 0;
+      }
+
+      .social-media h3 {
+        color: var(--text-grey);
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        background: var(--medium-grey);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 20px;
+      }
+
+      .social-icon:hover {
+        background: var(--accent);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+      }
+
+      .footer-bottom {
+        color: #666666;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid var(--medium-grey);
+        font-size: 14px;
+      }
+
+      .footer-bottom p {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <header class="header">
+      <a href="../index.html" class="logo">Game Store</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#store">Store</a></li>
+          <li><a href="#library">Library</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <a href="../cart.html" class="cart-btn" style="text-decoration: none;">🛒 Cart</a>
+        <button class="profile-btn">👤 Profile</button>
+      </div>
+    </header>
+
+    <!-- MAIN WRAPPER START -->
+    <main class="main-wrapper">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="gift-cards">
+          <h3>🎁 Gift Cards</h3>
+          <img
+            src="https://productimages.nimbledeals.com/nimblebuy/xbox-cash-102-64830-regular.jpg"
+            alt="Gift Card"
+          />
+          <p>Give the gift of gaming!</p>
+          <button>Buy Gift Card</button>
+        </div>
+
+        <br />
+        <h3>Categories</h3>
+<ul class="category-list">
+  <li><a href="/action">⚔ Action</a></li>
+  <li><a href="/adventure">🗡 Adventure</a></li>
+  <li><a href="/racing">🏁 Racing</a></li>
+  <li><a href="/sports">⚽ Sports</a></li>
+  <li><a href="/shooter">🎯 Shooter</a></li>
+  <li><a href="/puzzle">🧩 Puzzle</a></li>
+  <li><a href="/strategy">♟ Strategy</a></li>
+  <li><a href="/categoriesmultiplayer">👥 Multiplayer</a></li>
+  <li><a href="/rpg">🎭 RPG</a></li>
+  <li><a href="/horror">👻 Horror</a></li>
+  <li><a href="/indie">🎨 Indie</a></li>
+  <li><a href="/battle-royale">🏹 Battle Royale</a></li>
+</ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero">
+          <div class="title">
+            <span class="game">GAME</span>
+            <span class="store">Store</span>
+          </div>
+        </section>
+
+        <!-- SEARCH SECTION -->
+        <div class="search-section">
+          <div class="search-bar">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search for games, genres, or publishers..."
+            />
+            <button class="search-btn">Search</button>
+          </div>
+        </div>
+
+        <!-- GAME DETAILS (Loaded from JSON) -->
+        <div class="content-container" id="game-container">
+          <!-- content will load dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Partners</a>
+          <a href="#">Developers</a>
+        </div>
+
+        <div class="social-media">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">📘</a>
+            <a href="#" class="social-icon">🐦</a>
+            <a href="#" class="social-icon">📷</a>
+            <a href="#" class="social-icon">🎮</a>
+            <a href="#" class="social-icon">📺</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p><strong>&copy; 2024 Game Store. All rights reserved.</strong></p>
+          <p>Your ultimate destination for gaming entertainment</p>
+          <p>Available on Windows, Mac, Linux, and Mobile</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JSON Integration Script -->
+   <script>
+class Game {
+  constructor(title, price, image) {
+    this.title = title;
+    this.price = price;
+    this.image = image;
+  }
+}
+
+class Cart {
+  constructor() {
+    // Load cart from localStorage
+    this.items = JSON.parse(localStorage.getItem("cart")) || [];
+    this.updateCartCount();
+  }
+
+  addItem(game) {
+    this.items.push(game);
+    this.save();
+    this.updateCartCount();
+  }
+
+  save() {
+    localStorage.setItem("cart", JSON.stringify(this.items));
+  }
+
+  updateCartCount() {
+    const cartBtn = document.querySelector(".cart-btn");
+    if (cartBtn) {
+      cartBtn.textContent = `🛒 Cart (${this.items.length})`;
+    }
+  }
+}
+
+const cart = new Cart();
+let username = "Guest";
+
+// ------------- Fetch User Data -------------
+fetch("/userdata") // Replace with your API endpoint
+  .then(res => res.json())
+  .then(data => {
+    if(data && data.username){
+      username = data.username;
+      document.getElementById("username").textContent = `👤 ${username}`;
+      
+      // Update cart from user data
+      if(Array.isArray(data.cart)){
+        cart.items = data.cart;
+        cart.updateCartCount();
+        localStorage.setItem("cart", JSON.stringify(data.cart));
+      }
+    }
+  })
+  .catch(err => console.log("Error fetching user data:", err));
+
+// ======================
+// Load JSON & Render Game
+// ======================
+fetch("godofwar.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const game = data.games[0];
+    const related = data.relatedGames;
+    const container = document.getElementById("game-container");
+
+    container.innerHTML = `
+      <section class="game-details-section">
+        <div class="game-details-main">
+          <div class="hover-poster" style="flex: 1; min-width: 400px; max-width: 600px">
+            <a href="${game.media.trailer}" target="_blank">
+              <img src="${game.poster}" alt="${game.title}">
+            </a>
+          </div>
+          <div class="game-info">
+            <h2>${game.title}</h2>
+            <p>${game.shortDescription}</p>
+            <p class="price">${game.currency} ${game.price}</p>
+            <button class="buy-btn">🛒 Add to Cart</button>
+          </div>
+        </div>
+
+        <section class="related-games-section">
+          <br><h3>Images</h3><br>
+          <div class="related-games-gallery">
+            ${related.map(
+              (img) => `
+                <div class="game-card">
+                  <img src="${img.image}" alt="${img.alt}">
+                </div>
+              `
+            ).join("")}
+          </div>
+        </section>
+      </section>
+    `;
+
+    // Add to cart button listener
+    const addToCartBtn = document.querySelector(".buy-btn");
+    addToCartBtn.addEventListener("click", () => {
+      const selectedGame = new Game(game.title, parseFloat(game.price), game.poster);
+      cart.addItem(selectedGame);
+
+      // Optional: Update server-side cart
+      fetch("/add-to-cart", { 
+        method: "POST", 
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(selectedGame)
+      }).catch(err => console.log("Error adding to server cart:", err));
+
+      alert(`✅ ${game.title} added to cart!`);
+    });
+  })
+  .catch((err) => console.error("Error loading JSON file:", err));
+</script>
+
+  </body>
+</html>

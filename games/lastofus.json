@@ -1,0 +1,44 @@
+{
+  "games": [
+    {
+      "id": "tlou2",
+      "title": "The Last of Us Part II",
+      "shortDescription": "Following Ellie four years after the first game. A violent journey of vengeance to Seattle.",
+      "price": 59.99,
+      "currency": "USD",
+      "poster": "https://i.ytimg.com/vi/cxJWO3Dejj0/hq720.jpg",
+      "images": [
+        "https://gamingbolt.com/wp-content/uploads/2020/04/The-Last-of-Us-Part-2_12.jpg",
+        "https://www.newgamenetwork.com/images/uploads/gallery/LastOfUs2/tlou2_04.jpg",
+        "https://cdn.mos.cms.futurecdn.net/mGGcazxg2wPg2yR6v6zKD9.jpg",
+        "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/01/untitled-design-20.png"
+      ],
+      "tags": ["Action", "Adventure", "RPG", "Singleplayer"],
+      "media": {
+        "trailer": "https://www.youtube.com/watch?v=cxJWO3Dejj0"
+      }
+    }
+  ],
+  "relatedGames": [
+    {
+      "id": "tlou2_image1",
+      "image": "https://gamingbolt.com/wp-content/uploads/2020/04/The-Last-of-Us-Part-2_12.jpg",
+      "alt": "Last Of Us 1"
+    },
+    {
+      "id": "tlou2_image2",
+      "image": " https://oyster.ignimgs.com/mediawiki/apis.ign.com/the-last-of-us-2/2/25/TLOU2_Combat_Tips.png?width=1280   ",
+      "alt": "Last Of Us 2"
+    },
+    {
+      "id": "tlou2_image3",
+      "image": "https://cdn.mos.cms.futurecdn.net/mGGcazxg2wPg2yR6v6zKD9.jpg",
+      "alt": "Last Of Us 3"
+    },
+    {
+      "id": "tlou2_image4",
+      "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/01/untitled-design-20.png",
+      "alt": "Last Of Us 4"
+    }
+  ]
+}
