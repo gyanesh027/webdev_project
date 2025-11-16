@@ -1,0 +1,134 @@
+<!-- Navbar CSS -->
+<style>
+  /* navbar */
+  .header {
+    background: linear-gradient(
+      180deg,
+      var(--dark-grey) 0%,
+      rgba(26, 26, 26, 0.95) 100%
+    );
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--accent);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+    animation: slideDown 1s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  .logo {
+    font-size: 32px;
+    font-weight: 700;
+    background: transparent;
+    color: #ff0000; 
+    background-clip: text;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: transform var(--transition-fast);
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+  }
+
+  .nav-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-menu a:hover {
+    color: var(--accent);
+  }
+
+  .nav-menu a::after {
+    content: "";
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #ff6600);
+    width: 0;
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    transition: width var(--transition-fast) ease-in-out;
+  }
+
+  .nav-menu a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cart-btn,
+  .profile-btn {
+    background: linear-gradient(135deg, var(--accent), #ff3366);
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .cart-btn:hover,
+  .profile-btn:hover {
+    background: linear-gradient(135deg, var(--accent-hover), #cc2855);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  }
+
+  /* main container fix */
+  .main-wrapper {
+    display: flex;
+    min-height: calc(100vh - 90px);
+    animation: fadeIn var(--transition-slow) ease-in;
+  }
+</style>
+
+
+<!-- Navbar HTML -->
+<header class="header">
+  <a href="/" class="logo">Game Store</a>
+
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#store">Store</a></li>
+      <li><a href="#library">Library</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-right">
+    <a href="/cart" class="cart-btn" style="text-decoration: none;">
+    🛒 Cart (<span id="cart-count"><%= cart ? cart.length : 0 %></span>)
+  </a>
+        <button class="profile-btn">👤 <span id="username"><%= username %></span></button>
+      </div>
+    </header>
+

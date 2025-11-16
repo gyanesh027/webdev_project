@@ -1,0 +1,138 @@
+
+<style>
+      .footer {
+        background: linear-gradient(180deg, var(--dark-grey) 0%, #000000 100%);
+        padding: 60px 40px 30px;
+        margin-top: 0;
+        border-top: 3px solid var(--accent);
+        text-align: center;
+        box-shadow: 0 -10px 40px rgba(255, 0, 0, 0.2);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-links a {
+        color: var(--text-grey);
+        text-decoration: none;
+        font-size: 16px;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .footer-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: translateX(-50%);
+        transition: width 0.3s;
+      }
+
+      .footer-links a:hover::after {
+        width: 100%;
+      }
+
+      .social-media {
+        margin: 30px 0;
+      }
+
+      .social-media h3 {
+        color: var(--text-grey);
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        background: var(--medium-grey);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 20px;
+      }
+
+      .social-icon:hover {
+        background: var(--accent);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+      }
+
+      .footer-bottom {
+        color: #666666;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid var(--medium-grey);
+        font-size: 14px;
+      }
+
+      .footer-bottom p {
+        margin: 10px 0;
+      }
+     </style>
+
+
+
+
+
+
+
+<footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Partners</a>
+          <a href="#">Developers</a>
+        </div>
+
+        <div class="social-media">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">📘</a>
+            <a href="#" class="social-icon">🐦</a>
+            <a href="#" class="social-icon">📷</a>
+            <a href="#" class="social-icon">🎮</a>
+            <a href="#" class="social-icon">📺</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p><strong>&copy; 2024 Game Store. All rights reserved.</strong></p>
+          <p>Your ultimate destination for gaming entertainment</p>
+          <p>Available on Windows, Mac, Linux, and Mobile</p>
+        </div>
+      </div>
+    </footer>
