@@ -1,6 +1,6 @@
-// ------------------------------------------
+
 // IMPORTS
-// ------------------------------------------
+
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
@@ -8,9 +8,7 @@ const ejs = require("ejs");
 const { MongoClient } = require("mongodb");
 const querystring = require("querystring");
 
-// ------------------------------------------
-// EXPRESS + APP
-// ------------------------------------------
+
 const app = express();
 const PORT = 3000;
 
@@ -38,11 +36,9 @@ async function connectDB() {
 
 connectDB();
 
-// ------------------------------------------
-// HELPERS
-// ------------------------------------------
 
-// Dynamic EJS rendering (works with Express)
+
+//EJS rendering (works with Express)
 function renderEJS(res, view, data = {}) {
     const filePath = path.join(__dirname, "views", view);
     ejs.renderFile(filePath, data, (err, html) => {
@@ -72,9 +68,9 @@ function getCurrentUser() {
         : "Guest";
 }
 
-// ------------------------------------------
+
 // GET ROUTES
-// ------------------------------------------
+
 
 app.get("/index", async (req, res) => {
     const username = getCurrentUser();
@@ -144,9 +140,8 @@ app.get("/games/:file", (req, res) => {
     res.status(404).send("Not Found");
 });
 
-// ------------------------------------------
 // POST ROUTES
-// ------------------------------------------
+
 
 // Signup
 app.post("/signup", async (req, res) => {
@@ -240,3 +235,4 @@ app.use((req, res) => res.status(404).send("404 Not Found"));
 app.listen(PORT, () =>
     console.log(`Server running on http://localhost:${PORT}`)
 );
+
