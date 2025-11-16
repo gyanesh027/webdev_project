@@ -7,7 +7,7 @@ const { MongoClient } = require("mongodb");
 const querystring = require("querystring");
 
 // MongoDB setup
-const uri = "mongodb+srv://gyanesh:gyanesh0987654321@gamestore.ltsolaw.mongodb.net/?appName=gamestore";
+const uri = "mongodb+srv://user:pass@gamestore.ltsolaw.mongodb.net/?appName=gamestore";
 const client = new MongoClient(uri);
 let usersCollection;
 const publicPath = path.join(__dirname, "public");
@@ -292,3 +292,4 @@ async function startServer() {
 }
 
 startServer();
+
